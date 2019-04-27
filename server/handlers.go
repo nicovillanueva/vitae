@@ -95,3 +95,7 @@ func handleReference(c echo.Context) error {
 	}
 	return c.JSON(http.StatusOK, response{cvData.References[i]})
 }
+
+func handleDownloadCV(c echo.Context) error {
+	return c.Blob(http.StatusOK, "application/pdf", cvData.CVinPDF)
+}

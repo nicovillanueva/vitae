@@ -55,6 +55,7 @@ func setupRoutes(e *echo.Echo) {
 		Enabled: true,
 		Handlings: []routeDefinition{
 			{"GET", "/about", handlePersonalStatement},
+			{"GET", "/download", handleDownloadCV},
 			{"GET", "/skills", handleKeySkills},
 			{"GET", "/skills/:sid", handleKeySkill},
 			{"GET", "/achievements", handleAchievements},

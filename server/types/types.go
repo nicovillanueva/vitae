@@ -2,6 +2,7 @@ package types
 
 // CVData is the whole data of the CV, unmarshalled by Viper
 type CVData struct {
+	CVinPDF      []byte
 	Statement    string          `mapstructure:"statement"`
 	Skills       []string        `mapstructure:"skills"`
 	Achievements []string        `mapstructure:"achievements"`

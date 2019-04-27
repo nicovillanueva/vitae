@@ -5,6 +5,7 @@ import (
 	"github.com/nicovillanueva/api-vitae/server/types"
 
 	"fmt"
+	"io/ioutil"
 	"os"
 
 	"github.com/spf13/cobra"
@@ -25,8 +26,9 @@ var rootCmd = &cobra.Command{
 
 func init() {
 	var data string
+	var pdfPath string
 	rootCmd.PersistentFlags().StringVarP(&data, "cv", "c", "", "Path to the CV data")
-	rootCmd.MarkFlagRequired("cv")
+	rootCmd.PersistentFlags().StringVarP(&pdfPath, "pdf", "p", "", "Path to the downloadable PDF")
 	cobra.OnInitialize(func() {
 		viper.SetConfigType("yaml")
 		viper.SetConfigFile(data)
@@ -36,7 +38,10 @@ func init() {
 		if err := viper.Unmarshal(&cvdata); err != nil {
 			panic(err)
 		}
-		// fmt.Printf("unmarshalled: %+v", cvdata)
+		var err error
+		if cvdata.CVinPDF, err = ioutil.ReadFile(pdfPath); err != nil {
+			panic(err)
+		}
 	})
 
 }
