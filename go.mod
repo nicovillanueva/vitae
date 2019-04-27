@@ -7,6 +7,7 @@ require (
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
 	github.com/labstack/echo/v4 v4.0.0
 	github.com/labstack/gommon v0.2.8
+	github.com/spf13/cast v1.3.0
 	github.com/spf13/cobra v0.0.3
 	github.com/spf13/viper v1.3.2
 )

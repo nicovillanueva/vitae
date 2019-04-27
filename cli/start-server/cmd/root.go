@@ -18,7 +18,6 @@ var cvdata types.CVData
 var rootCmd = &cobra.Command{
 	Use:   "api-vitae",
 	Short: "Start the server",
-
 	Run: func(cmd *cobra.Command, args []string) {
 		server.Start(cvdata)
 	},
@@ -27,8 +26,8 @@ var rootCmd = &cobra.Command{
 func init() {
 	var data string
 	var pdfPath string
-	rootCmd.PersistentFlags().StringVarP(&data, "cv", "c", "", "Path to the CV data")
-	rootCmd.PersistentFlags().StringVarP(&pdfPath, "pdf", "p", "", "Path to the downloadable PDF")
+	rootCmd.Flags().StringVarP(&data, "cv", "c", "", "Path to the CV data")
+	rootCmd.Flags().StringVarP(&pdfPath, "pdf", "p", "", "Path to the downloadable PDF")
 	cobra.OnInitialize(func() {
 		viper.SetConfigType("yaml")
 		viper.SetConfigFile(data)

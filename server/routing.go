@@ -3,6 +3,7 @@ package server
 import (
 	"fmt"
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 )
 
 // APIVersion is a specific API version with all it's handlers
@@ -23,7 +24,11 @@ func (a *APIVersion) apply(e *echo.Echo) {
 	if !a.Enabled {
 		return
 	}
-	g := e.Group(fmt.Sprintf("/v%d", a.Number))
+	versionRoot := fmt.Sprintf("/v%d", a.Number)
+	g := e.Group(versionRoot)
+	e.Pre(middleware.Rewrite(map[string]string{
+		versionRoot: versionRoot + "/",
+	}))
 	for _, r := range a.Handlings {
 		g.Add(r.Method, r.Path, r.Handler)
 	}

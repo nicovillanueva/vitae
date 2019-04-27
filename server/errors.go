@@ -1,5 +1,9 @@
 package server
 
+type responseError struct {
+	Reason string `json:"reason"`
+}
+
 var (
 	errJobNotFound         = responseError{"this could return info on a position in your company; contact me!"}
 	errStudiesNotFound     = responseError{"haven't yet looked into this"}
