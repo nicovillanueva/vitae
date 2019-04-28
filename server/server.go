@@ -30,5 +30,5 @@ func Start(d types.CVData) {
 		l.SetHeader("${time_rfc3339} ${level}")
 	}
 
-	e.Logger.Fatal(e.Start(":8000"))
+	e.Logger.Fatal(e.Start(":80"))
 }

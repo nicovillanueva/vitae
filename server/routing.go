@@ -24,19 +24,21 @@ func (a *APIVersion) apply(e *echo.Echo) {
 	if !a.Enabled {
 		return
 	}
+	routesSummary := make([]string, len(a.Handlings))
 	versionRoot := fmt.Sprintf("/v%d", a.Number)
 	g := e.Group(versionRoot)
 	e.Pre(middleware.Rewrite(map[string]string{
 		versionRoot: versionRoot + "/",
 	}))
-	for _, r := range a.Handlings {
+	for i, r := range a.Handlings {
 		g.Add(r.Method, r.Path, r.Handler)
+		routesSummary[i] = fmt.Sprintf("%s %s", r.Method, r.Path)
 	}
 	g.Add("GET", "/", func(c echo.Context) error {
 		return c.JSON(200, struct {
-			RoutesAvailable []*echo.Route `json:"routes_available"`
+			RoutesAvailable []string `json:"routes_available"`
 		}{
-			e.Routes(),
+			routesSummary,
 		})
 	})
 }
@@ -62,13 +64,13 @@ func setupRoutes(e *echo.Echo) {
 			{"GET", "/about", handlePersonalStatement},
 			{"GET", "/download", handleDownloadCV},
 			{"GET", "/skills", handleKeySkills},
-			{"GET", "/skills/:sid", handleKeySkill},
+			{"GET", "/skills/:id", handleKeySkill},
 			{"GET", "/achievements", handleAchievements},
-			{"GET", "/achievements/:aid", handleAchievement},
+			{"GET", "/achievements/:id", handleAchievement},
 			{"GET", "/work", handleWorkHistory},
-			{"GET", "/work/:wid", handleWorkPlace},
+			{"GET", "/work/:id", handleWorkPlace},
 			{"GET", "/education", handleEducation},
-			{"GET", "/education/:eid", handleEducationPlace},
+			{"GET", "/education/:id", handleEducationPlace},
 			{"GET", "/hobbies", handleHobbies},
 			{"GET", "/references", handleReferences},
 		},

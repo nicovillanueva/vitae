@@ -15,8 +15,8 @@ func handleKeySkills(c echo.Context) error {
 }
 
 func handleKeySkill(c echo.Context) error {
-	i := cast.ToInt(c.Param("sid"))
-	if i < 0 || i > len(cvData.Skills) {
+	i := cast.ToInt(c.Param("id"))
+	if i < 0 || i > len(cvData.Skills)-1 {
 		return c.JSON(http.StatusNotFound, errSkillNotFound)
 	}
 	return c.JSON(http.StatusOK, cvData.Skills[i])
@@ -26,7 +26,7 @@ func handleAchievements(c echo.Context) error {
 	return c.JSON(http.StatusOK, cvData.Achievements)
 }
 func handleAchievement(c echo.Context) error {
-	i := cast.ToInt(c.Param("aid"))
+	i := cast.ToInt(c.Param("id"))
 	if i < 0 || i > len(cvData.Achievements)-1 {
 		return c.JSON(http.StatusNotFound, errAchievementNotFound)
 	}
@@ -38,7 +38,7 @@ func handleWorkHistory(c echo.Context) error {
 }
 
 func handleWorkPlace(c echo.Context) error {
-	i := cast.ToInt(c.Param("wid"))
+	i := cast.ToInt(c.Param("id"))
 	if i < 0 || i > len(cvData.WorkHistory)-1 {
 		return c.JSON(http.StatusNotFound, errJobNotFound)
 	}
@@ -50,7 +50,7 @@ func handleEducation(c echo.Context) error {
 }
 
 func handleEducationPlace(c echo.Context) error {
-	i := cast.ToInt(c.Param("eid"))
+	i := cast.ToInt(c.Param("id"))
 	if i < 0 || i > len(cvData.Education)-1 {
 		return c.JSON(http.StatusNotFound, errStudiesNotFound)
 	}
@@ -66,7 +66,7 @@ func handleReferences(c echo.Context) error {
 }
 
 func handleReference(c echo.Context) error {
-	i := cast.ToInt(c.Param("rid"))
+	i := cast.ToInt(c.Param("id"))
 	if i < 0 || i > len(cvData.References)-1 {
 		return c.JSON(http.StatusNotFound, errRefNotFound)
 	}

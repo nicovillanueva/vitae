@@ -7,6 +7,9 @@ run:
 build:
 	docker build -t apivitae .
 
+deploy: build
+	docker run -dp 80:80 apivitae
+
 ssh:
 	gcloud compute --project "api-vitae" ssh --zone "us-east1-b" "vita-1"
 
