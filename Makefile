@@ -1,17 +1,17 @@
-IMG:=apivitae
+IMG:=vitae
 VMNAME:=vita-1
 
 all:
 	@echo "available commands: run, build, ssh, enable\nImage name: $(IMG)\nVM name: $(VMNAME)"
 
-run:
+run: swagger
 	go run cli/start-server/main.go -c $$PWD/cv-data.yaml -p $$PWD/CV-NicolasVillanueva.pdf
 
-build:
+build: swagger
 	docker build -t $(IMG) .
 
 deploy: build
-	docker run -dp 80:80 $(IMG)
+	docker run -dp 8080:80 $(IMG)
 
 ssh:
 	gcloud compute --project "api-vitae" ssh --zone "us-east1-b" "$(VMNAME)"
@@ -24,3 +24,11 @@ export: build
 
 import:
 	docker load -i $(IMG)-export
+
+swagger: clear-swag
+	@echo ">> generating swagger"
+	swag init -g server/server.go -o server/docs/
+
+clear-swag:
+	@echo ">> clearing generated swagger"
+	rm -r server/docs/

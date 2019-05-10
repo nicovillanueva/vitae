@@ -12,18 +12,16 @@ type CVData struct {
 	References   []Reference     `mapstructure:"references"`
 }
 
-// TODO: Extend other spans from this one
-// AbstractSpan ...
-// type AbstractSpan struct {
-// 	Title       string `json:"title"`
-// 	Location    string `json:"location"`
-// 	Span        string `json:"span"`
-// 	Description string `json:"description"`
-// }
+// SpanDetails - is not used as it breaks the swagger docs generation :(
+type SpanDetails struct {
+	Title       string `json:"title"`
+	Location    string `json:"location"`
+	Span        string `json:"span"`
+	Description string `json:"description"`
+}
 
-// WorkSpan ...
+// WorkSpan is a span of time in which I worked somewhere
 type WorkSpan struct {
-	// AbstractSpan
 	Title       string `json:"title"`
 	Location    string `json:"location"`
 	Span        string `json:"span"`
@@ -31,9 +29,8 @@ type WorkSpan struct {
 	Company     string `json:"company"`
 }
 
-// EducationSpan ...
+// EducationSpan is a span of time in which I attended some course or educational thingy
 type EducationSpan struct {
-	// AbstractSpan
 	Title       string `json:"title"`
 	Location    string `json:"location"`
 	Span        string `json:"span"`

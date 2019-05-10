@@ -1,8 +1,8 @@
 package cmd
 
 import (
-	"github.com/nicovillanueva/api-vitae/server"
-	"github.com/nicovillanueva/api-vitae/server/types"
+	"github.com/nicovillanueva/vitae/server"
+	"github.com/nicovillanueva/vitae/server/types"
 
 	"fmt"
 	"io/ioutil"
@@ -16,7 +16,7 @@ var cfgFile string
 var cvdata types.CVData
 
 var rootCmd = &cobra.Command{
-	Use:   "api-vitae",
+	Use:   "vitae",
 	Short: "Start the server",
 	Run: func(cmd *cobra.Command, args []string) {
 		server.Start(cvdata)

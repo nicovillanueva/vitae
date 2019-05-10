@@ -1,0 +1,342 @@
+basePath: /api/
+definitions:
+  server.requestors:
+    properties:
+      processed_requests:
+        type: integer
+      uniq_user_agents:
+        items:
+          type: string
+        type: array
+    type: object
+  server.responseError:
+    properties:
+      reason:
+        type: string
+    type: object
+  server.stats:
+    properties:
+      mtx:
+        type: string
+      request_stats:
+        $ref: '#/definitions/server.requestors'
+        type: object
+      serving_since:
+        type: string
+      system:
+        $ref: '#/definitions/server.sysStats'
+        type: object
+      uptime:
+        type: string
+    type: object
+  server.sysStats:
+    properties:
+      current_memory:
+        type: integer
+      gc_runs:
+        type: integer
+      heap_live_objects:
+        type: integer
+      last_gc_in_ns:
+        type: integer
+      sys_reserved:
+        type: integer
+    type: object
+  types.EducationSpan:
+    properties:
+      description:
+        type: string
+      institute:
+        type: string
+      location:
+        type: string
+      span:
+        type: string
+      title:
+        type: string
+    type: object
+  types.Reference:
+    properties:
+      company:
+        type: string
+      contact:
+        type: string
+      name:
+        type: string
+    type: object
+  types.WorkSpan:
+    properties:
+      company:
+        type: string
+      description:
+        type: string
+      location:
+        type: string
+      span:
+        type: string
+      title:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: My career's documentation
+  license: {}
+  title: Vitae
+  version: "0.1"
+paths:
+  /about:
+    get:
+      consumes:
+      - application/json
+      description: A simple statement depicting my experience, and stuff
+      produces:
+      - text/plain
+      responses:
+        "200":
+          description: A simple summary
+          schema:
+            type: string
+      summary: Personal Statement
+  /achievements:
+    get:
+      consumes:
+      - application/json
+      description: A listing of some achievements I've achieved
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: List of achievements
+          schema:
+            items:
+              type: string
+            type: array
+      summary: All achievements and noteworthy facts
+  /achievements/{id}:
+    get:
+      consumes:
+      - application/json
+      description: A single, noteworthy achievement
+      parameters:
+      - description: Achievement ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - text/plain
+      responses:
+        "200":
+          description: A single thing
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/server.responseError'
+            type: object
+      summary: A single achievement
+  /download:
+    get:
+      consumes:
+      - application/json
+      description: Download or view this CV in PDF form to share with your HR friends
+      produces:
+      - application/pdf
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: file
+      summary: CV in PDF form
+  /education:
+    get:
+      consumes:
+      - application/json
+      description: A listing of most courses I've attended. However, given I'm mostly
+        self-taught, it's not really representative of my expertise
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/types.EducationSpan'
+            type: array
+      summary: Courses I've attended
+  /education/{id}:
+    get:
+      consumes:
+      - application/json
+      description: A single course I've attended
+      parameters:
+      - description: Course ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - text/plain
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/types.EducationSpan'
+            type: object
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/server.responseError'
+            type: object
+      summary: A single course
+  /hobbies:
+    get:
+      consumes:
+      - application/json
+      description: Some relevant hobbies I dabble with
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: Hobbies
+  /references:
+    get:
+      consumes:
+      - application/json
+      description: Some people which whom I've worked with, and can vouch for me
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/types.Reference'
+            type: array
+      summary: References
+  /references/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Someone who can vouch for me
+      parameters:
+      - description: Reference ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/types.Reference'
+            type: object
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/server.responseError'
+            type: object
+      summary: A single reference
+  /skills:
+    get:
+      consumes:
+      - application/json
+      description: A list of some key skills I consider noteworthy
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+      summary: Key skills
+  /skills/{id}:
+    get:
+      consumes:
+      - application/json
+      description: A single, cool skill
+      parameters:
+      - description: Skill ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - text/plain
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/server.responseError'
+            type: object
+      summary: A single skill
+  /stats:
+    get:
+      description: Some statistics about this API
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Some stats
+          schema:
+            $ref: '#/definitions/server.stats'
+            type: object
+      summary: Statistics
+      tags:
+      - Others
+  /work:
+    get:
+      consumes:
+      - application/json
+      description: |-
+        A listing of the most relevant job positions I've held.
+        Early jobs, such as waiter at a small-town café, are omitted
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/types.WorkSpan'
+            type: array
+      summary: Most jobs I've had so far
+  /work/{id}:
+    get:
+      consumes:
+      - application/json
+      description: A single place I've worked in
+      parameters:
+      - description: Job ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - text/plain
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/types.WorkSpan'
+            type: object
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/server.responseError'
+            type: object
+      summary: A single workplace
+swagger: "2.0"

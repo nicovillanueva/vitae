@@ -1,10 +1,11 @@
 package server
 
 import (
-	"github.com/labstack/echo/v4"
 	"runtime"
 	"sync"
 	"time"
+
+	"github.com/labstack/echo/v4"
 )
 
 type sysStats struct {
@@ -15,12 +16,26 @@ type sysStats struct {
 	LastGC          uint64 `json:"last_gc_in_ns"`
 }
 
+type requestors struct {
+	Requests   int      `json:"processed_requests"`
+	UserAgents []string `json:"uniq_user_agents"`
+}
+
+func (r *requestors) addUserAgent(ua string) {
+	for _, nua := range r.UserAgents {
+		if nua == ua {
+			return
+		}
+	}
+	r.UserAgents = append(r.UserAgents, ua)
+}
+
 type stats struct {
-	System   sysStats  `json:"system"`
-	BootTime time.Time `json:"serving_since"`
-	Uptime   string    `json:"uptime"`
-	Requests int       `json:"processed_requests"`
-	mtx      sync.RWMutex
+	System     sysStats   `json:"system"`
+	BootTime   time.Time  `json:"serving_since"`
+	Uptime     string     `json:"uptime"`
+	Requestors requestors `json:"request_stats"`
+	mtx        sync.RWMutex
 }
 
 func newStats() *stats {
@@ -36,7 +51,15 @@ func (s *stats) midProcess(next echo.HandlerFunc) echo.HandlerFunc {
 		}
 		s.mtx.Lock()
 		defer s.mtx.Unlock()
-		s.Requests++
+
+		r := c.Request()
+		s.Requestors.Requests++
+		ua := r.UserAgent()
+		s.Requestors.addUserAgent(ua)
+		if len(ua) > 50 {
+			ua = ua[:50]
+		}
+		logger.Infof("new request to [%s] from user-agent [%s...]", r.URL.Path, ua)
 		return nil
 	}
 }
@@ -52,13 +75,19 @@ func (s *stats) current() stats {
 		LastGC:          ms.LastGC,
 	}
 	return stats{
-		System:   st,
-		BootTime: s.BootTime,
-		Requests: s.Requests,
-		Uptime:   time.Now().Sub(s.BootTime).String(),
+		System:     st,
+		BootTime:   s.BootTime,
+		Requestors: s.Requestors,
+		Uptime:     time.Now().Sub(s.BootTime).String(),
 	}
 }
 
+// @Summary Statistics
+// @Description Some statistics about this API
+// @Produce json
+// @Success 200 {object} server.stats "Some stats"
+// @tags Others
+// @Router /stats [GET]
 func (s *stats) HandleStats(c echo.Context) error {
 	s.mtx.RLock()
 	defer s.mtx.RUnlock()
