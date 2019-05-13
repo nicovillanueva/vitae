@@ -1,5 +1,18 @@
+# IDE
 .vscode/
+
+# Served data
 cv-data.yaml
 CV-NicolasVillanueva.pdf
+
+# Compiled Go code
 vitae
 apivitae-export
+
+# Misc
+notes.md
+
+# LaTeX
+latex/*
+!latex/cv.tex
+!latex/*.cls

@@ -5,7 +5,7 @@
         "title": "Vitae",
         "contact": {},
         "license": {},
-        "version": "0.1"
+        "version": "{{.Version}}"
     },
     "host": "localhost:8080",
     "basePath": "/api/",

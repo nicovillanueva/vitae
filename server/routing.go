@@ -4,7 +4,7 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-var routes = APIVersion{
+var routes = apiVersion{
 	Prefix:  "/api",
 	Enabled: true,
 	Handlings: []routeDefinition{
@@ -24,9 +24,7 @@ var routes = APIVersion{
 	},
 }
 
-// APIVersion is a specific API version with all it's handlers
-// Call `.apply()` to enable the routes in the server
-type APIVersion struct {
+type apiVersion struct {
 	Prefix    string
 	Enabled   bool
 	Handlings []routeDefinition
@@ -38,7 +36,7 @@ type routeDefinition struct {
 	Handler func(echo.Context) error
 }
 
-func (a *APIVersion) apply(e *echo.Echo) {
+func (a *apiVersion) apply(e *echo.Echo) {
 	if !a.Enabled {
 		return
 	}

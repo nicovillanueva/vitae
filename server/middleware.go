@@ -59,7 +59,8 @@ func (s *stats) midProcess(next echo.HandlerFunc) echo.HandlerFunc {
 		if len(ua) > 50 {
 			ua = ua[:50]
 		}
-		logger.Infof("new request to [%s] from user-agent [%s...]", r.URL.Path, ua)
+		logger.Debugf("[%s %s] [%s...] -> %d",
+			r.Method, r.URL.Path, ua, c.Response().Status)
 		return nil
 	}
 }

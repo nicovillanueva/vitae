@@ -83,7 +83,7 @@ info:
   description: My career's documentation
   license: {}
   title: Vitae
-  version: "0.1"
+  version: '{{.Version}}'
 paths:
   /about:
     get:
