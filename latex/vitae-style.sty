@@ -1,0 +1,17 @@
+\ProvidesClass{vitae-style}
+
+\RequirePackage{FiraSans}
+
+\linespread{1.2}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\newcolumntype{L}{>{\raggedleft}p{0.2\textwidth}}
+\newcolumntype{R}{p{0.8\textwidth}}
+\newcommand{\VRule}{\color{MonokaiGray}\vrule width 1pt}
+
+\titleformat{\section}
+    {\Large\scshape\centering\sffamily}
+    {}{0em}
+    {}
+    [\titlerule]

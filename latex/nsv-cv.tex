@@ -3,61 +3,50 @@
 %%
 %% TODOs
 %%  - highlight links
-%%  - move setup to cls
-%%  - move style to sty
-%%  - highlight keywords with bold
+%%  - change font
 %%
-
-% \setfullname{}
-% \title{\bfseries\Huge\@fullname{}}
-% \title{%
-    
-% }
-% \author{}
-% \date{}
-
-% \usepackage{helvetica}
 
 \begin{document}
 
 \makeheader
 
 \section*{Summary}
-I am an IT professional, largely by trade, with working experience in the setup and maintenance of {\bf scalable}, {\bf resilient} architectures. I have a strong suit for collaboration and efficiency, while being highly organized and responsible in my work. Adaptable and fast learning, I am always eager to tackle new challenges, learn new things, and share my knowledge with my peers and the software community in general.
-
-I possess professional experience in {\bf cloud} infrastructures, {\bf distributed systems} and {\bf continuous integration} and delivery. Non-professionally, I have dabbled with backend development, game development and information security.
-
-I am currently seeking a new position related to systems architecture, reliability, and operations (so called SRE, DevOps), or systems programming.
-
-{\vskip 1em}
+I am an IT professional, largely by trade, with working experience in the setup and maintenance of {\bf scalable}, {\bf resilient} architectures. I have a strong suit for collaboration and efficiency, while being highly organized and responsible in my work. I possess professional experience in {\bf cloud} infrastructures, {\bf distributed systems} and {\bf continuous integration} and delivery. Non-professionally, I have dabbled with backend development, game development and information security.
+\medbreak
+I am currently seeking a new position related to {\bf\color{MonokaiProMagenta} systems architecture, reliability, and operations} (so called SRE, DevOps), or {\bf systems programming}.
 
 \section*{Key skills}
-\begin{minipage}{0.49\textwidth}
-    \begin{tabular}{ll}
-        {\bf Systems administration}&Linux-based servers herding\\&Container technologies\\
-        {\bf Development}&Golang\\&Python\\&UNIX shell scripting\\&Java\\&
+
+\begin{minipage}{0.48\textwidth}
+    \begin{tabular}{r|lr}
+        {\bf Sysadmin}
+        &Linux-based servers mgmt.&{\progressbar{9}}\\
+        &Container technologies&{\progressbar{9}}\\
+        &Amazon Web Services&{\progressbar{7}}\\
+        &Google Cloud Engine&{\progressbar{6}}\\
+        &Distributed systems&{\progressbar{6}}\\
     \end{tabular}
-    % \begin{itemize}
-    % \item Linux-based systems administration;
-    % \item Container technologies, such as Docker;
-    % \item Distributed architectures, such as Mesosphere DC/OS;
-    % \item Backend development in Go (“golang”), Python and Java;
-    % \item Obsessive about well-designed, secure architectures, microservices or otherwise;
-    % \item Scripting, specially in Python and Bash, but with non-negligible exposure to Ruby, JavaScript, Perl, and others.
-    % \end{itemize}
 \end{minipage}
-
+\hfill
+\begin{minipage}{0.48\textwidth}
+    \begin{tabular}{r|lr}
+        {\bf Development}
+        &Golang&{\progressbar{8}}\\
+        &Python&{\progressbar{6}}\\
+        &UNIX shell scripting&{\progressbar{7}}\\
+        &Java&{\progressbar{4}}\\
+        &\LaTeX&{\progressbar{1}}\\
+    \end{tabular}
+\end{minipage}
+% TODO: add "understanding of other languages"? "problem resolution"?
 \section*{Achievements}
-My team and I implemented the first Mesosphere DC/OS Enterprise cluster in Argentina, around 2016. I became the non-official consultant for cloud architectures, Docker and systems monitoring in the company.
-
-I co-organized (and gave a talk in) the first DC/OS \href{https://www.meetup.com/es-ES/mesos-dcos-argentina/events/234352452/}{meetup} in the region. We had official support from Mesosphere on the organization of such meetup.
-
+My team and I implemented the first Mesosphere DC/OS Enterprise cluster in Argentina, around 2016. I became the non-official consultant for cloud architectures, Docker and systems monitoring in the company.\\
+I co-organized (and gave a talk in) the first DC/OS \href{https://www.meetup.com/es-ES/mesos-dcos-argentina/events/234352452/}{meetup} in the region. We had official support from Mesosphere on the organization of such meetup.\\
 I also gave a talk in \href{https://www.blackhat.com/eu-16/presenters/Nicolas-Villanueva.html}{Blackhat Arsenal Europe 2016} and co-organized a local meetup focused on APIs in general: \href{https://www.meetup.com/es-ES/preview/APIsAR/events/243084908}{APIsARVI}.
-
 Involved in initiatives focused on gender diversity in engineering, I was a mentor in two Chicas en Tecnología events.
-\begin{itemize}
-    \item PUMM August 2017 https://www.chicasentecnologia.org/pumm-agosto-2017
-    \item PUMM October 2017: https://www.chicasentecnologia.org/pumm-octubre-2017
+\begin{itemize}[noitemsep]
+    \item PUMM August 2017: \url{https://www.chicasentecnologia.org/pumm-agosto-2017}
+    \item PUMM October 2017: \url{https://www.chicasentecnologia.org/pumm-octubre-2017}
 \end{itemize}
 
 \section*{Work history}
@@ -90,22 +79,31 @@ Involved in initiatives focused on gender diversity in engineering, I was a ment
 \end{tabular}
 
 \section*{Education}
-Although I gained most of my skills by self-learning (as a hobby) and hands-on working experience, I also completed a few (live) courses.\\
-\\
+Although I gained most of my skills by self-learning (as a hobby) and hands-on working experience, I also took a few courses.
+
 \begin{tabular}{L!{\VRule}R}
-2014 -- 2014&{\bf Web Security, NOP07, Buenos Aires}\\
-&General overview of web security and red-teaming.\\
+2019&{\bf Scalable Microservices with Kubernetes, Udacity (Online)}\\
+&Management of Kubernetes clusters, and Google Cloud Engine infrastructures.\\
 \\
-2012 -- 2014&{\bf Java Development \& Computer Security, Educacion IT, Buenos Aires}\\
-&Short (1-year) courses on Java and Android development, and information security (networking, red- and blue-team techniques).\\
+2014 -- 2015&{\bf Web Security, NOP07, Buenos Aires}\\
+&Web security, focused on red-teaming.\\
+\\
+2013 -- 2014&{\bf Computer Security, Educacion IT, Buenos Aires}\\
+&Web security, penetration testing, network security. Red- and blue-team techniques.\\
+\\
+2012 -- 2013&{\bf Java Development, Educacion IT, Buenos Aires}\\
+&Java EE7 and Android development.\\
 \\
 2010 -- 2011&{\bf Web Development, Universidad Tecnológica Nacional, Buenos Aires}\\
-&General course focused on web development and web marketing\\
+&Web development, marketing and design\\
 
 \end{tabular}
 
+% TODO: this
 \section*{Hobbies and personal interests}
-As mentioned before, my technical skills were mostly learned by hobby. I have a fairly prolific Github account (https://github.com/nicovillanueva) with several of my personal projects, ranging from deployment and cluster managements tools, to a collaborative platform for p5.js sketches (in progress). As I have a knack for information security, I also developed a proof-of-concept ransomware and a reverse-shell for gaining access to nodes in distributed clusters.
+As mentioned before, my technical skills were mostly learned by hobby. I have a fairly prolific Github account (https://github.com/nicovillanueva) with several of my personal projects, ranging from deployment and cluster managements tools, to a collaborative platform for p5.js sketches (in progress).
+
+As I have a knack for information security, I also developed a proof-of-concept ransomware and a reverse-shell for gaining access to nodes in distributed clusters.
 Other relevant interests include: {\bf privacy} and online rights of individuals, {\bf machine learning}, image and {\bf signal processing}, and {\bf digital art}.
 
 \section*{References}
@@ -117,4 +115,9 @@ Other relevant interests include: {\bf privacy} and online rights of individuals
     \item Pablo Castelo, NaLabs\\
     pablo@nalabs.io
 \end{itemize}
+\centering{
+    \tri
+
+    Thank you for reading
+}
 \end{document}
