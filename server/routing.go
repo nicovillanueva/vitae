@@ -8,6 +8,7 @@ var routes = apiVersion{
 	Prefix:  "/api",
 	Enabled: true,
 	Handlings: []routeDefinition{
+		{"GET", "/", handleRootToSwag},
 		{"GET", "/about", handlePersonalStatement},
 		{"GET", "/download", handleDownloadCV},
 		{"GET", "/skills", handleKeySkills},

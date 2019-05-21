@@ -7,7 +7,7 @@
     \setlength\paperwidth{210mm}
 }
 
-\ExecuteOptions{a4paper,11pt,final}
+\ExecuteOptions{a4paper}
 \ProcessOptions\relax
 
 \RequirePackage[utf8]{inputenc}
@@ -19,6 +19,7 @@
 \RequirePackage{fontawesome}
 \RequirePackage{etoolbox}
 \RequirePackage{url}
+\RequirePackage{multicol}
 
 \urlstyle{tt}
 
@@ -28,7 +29,7 @@
 \AtEndPreamble{
     \RequirePackage[unicode]{hyperref}
     \hypersetup{
-        urlcolor      = MonokaiGray,
+        urlcolor      = \@urlColor,
         colorlinks    = true,
         pdfborder     = 0 0 0,
         pdfauthor     = {Nicolas Villanueva},
@@ -41,15 +42,15 @@
 %% Usage: \progressbar{3} => Renders a bar 30% filled
 \newcommand{\progressbar}[1]{
     \begin{tikzpicture}[xscale=0.1]
-    \filldraw[color=MonokaiGray](0,0) rectangle (10,0.2);
-    \filldraw[color=MonokaiMagenta] (0,0) rectangle (#1,0.2);
+        \filldraw[color=\@progressBackColor](0,0) rectangle (10,0.2);
+        \filldraw[color=\@progressFillColor] (0,0) rectangle (#1,0.2);
     \end{tikzpicture}
 }
 
 %% Tri ▲
 \newcommand{\tri}{
     \begin{tikzpicture}[scale=.5]
-        \fill[color=MonokaiGray] (0,0) +(0:1) -- +(60:1) -- +(60:0) -- cycle;
+        \fill[color=\@triColor] (0,0) +(0:1) -- +(60:1) -- +(60:0) -- cycle;
     \end{tikzpicture}
 }
 
@@ -58,12 +59,10 @@
     \null
     \vskip 2em
     \begin{center}%
-        {\bfseries\scshape\Huge Nicolas S. Villanueva}
-
+        {\bfseries\scshape\Huge {\@titleNameStyle{Nicolas}}{\@titleLastStyle{Villanueva}}}
         \vskip 1em
-        {\fontshape{sl}\Large \{Sysadmin~{\vline}~dev\} for fun and profit, looking for new challenges}
+        {\@titleSubStyle{\{Sysadmin~{\vline}~dev\} for fun and profit, looking for new challenges}}
         \vskip 1.5em
-
         \tri
     \end{center}%
     \vskip 1.5em
@@ -72,14 +71,14 @@
 %% Insert the header, with contact info
 \newcommand{\makeheader}{
     \maketitle
-    \begin{minipage}{0.48\textwidth}
+    \begin{minipage}{0.49\textwidth}
         \centering{\small\faLinkedin}~\href{https://www.linkedin.com/in/villanuevanicolas}{\url{villanuevanicolas}}
 
         {\small\faGithub}~\href{https://github.com/nicovillanueva}{\url{nicovillanueva}}
     \end{minipage}
-    % \hskip 6pt
+    \hskip 2pt  % TODO: Fix this mf
     {\VRule}
-    \begin{minipage}{0.48\textwidth}
+    \begin{minipage}{0.49\textwidth}
         \centering{\small\faEnvelopeO}~nicovillanueva@pm.me
 
         {\small\faPhone}~+44 7946 479742

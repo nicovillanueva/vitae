@@ -1,15 +1,16 @@
 package types
 
-// CVData is the whole data of the CV, unmarshalled by Viper
+// CVData is the whole data of the CV, unmarshalled in the config phase by the CLI
 type CVData struct {
-	CVinPDF      []byte
-	Statement    string          `mapstructure:"statement"`
-	Skills       []string        `mapstructure:"skills"`
-	Achievements []string        `mapstructure:"achievements"`
-	WorkHistory  []WorkSpan      `mapstructure:"work_history"`
-	Education    []EducationSpan `mapstructure:"education"`
-	Hobbies      string          `mapstructure:"hobbies"`
-	References   []Reference     `mapstructure:"references"`
+	PDFpayload   []byte
+	PathToPDF    string          `yaml:"path_to_pdf"`
+	Statement    string          `yaml:"statement"`
+	Skills       []string        `yaml:"skills"`
+	Achievements []string        `yaml:"achievements"`
+	WorkHistory  []WorkSpan      `yaml:"work_history"`
+	Education    []EducationSpan `yaml:"education"`
+	Hobbies      string          `yaml:"hobbies"`
+	References   []Reference     `yaml:"references"`
 }
 
 // SpanDetails - is not used as it breaks the swagger docs generation :(

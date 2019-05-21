@@ -1,0 +1,112 @@
+---
+path_to_pdf: ./latex/nsv-cv.pdf
+
+statement: >-
+  I am an IT professional, largely by trade, with working experience in the setup and maintenance of scalable, resilient architectures. I have a strong suit for collaboration and efficiency, while being highly organized and responsible in my work. I possess professional experience in cloud infrastructures, distributed systems and continuous integration and delivery. Non-professionally, I have dabbled with backend development, game development and information security.
+  I am currently seeking a new position related to systems architecture, reliability, and operations (so called SRE, DevOps), or systems programming.
+
+skills:
+  - Linux-based servers mgmt.
+  - Container technologies
+  - Amazon Web Services
+  - Google Cloud Engine
+  - Distributed systems
+  - Golang
+  - Python
+  - UNIX shell scripting
+  - Java
+  - LaTeX
+
+achievements:
+  - Took part in two successful migrations from monolithic, to microservices-oriented architectures. In both cases, migrated to Scala-based, highly-available architectures.
+  - Implemented the first Mesosphere DC/OS Enterprise cluster in Argentina. Became the non-official consultant for cloud architectures, Docker and systems monitoring in the company. Gave a several trainings, internal to the company and to our clients, on Docker and distributed architectures. 
+  - I co-organized (and gave a talk in) the first DC/OS meetup in Buenos Aires. We had official support from Mesosphere for the organization of such meetup.
+  - I also gave a talk in Blackhat Arsenal Europe 2016 and co-organized a local meetup focused on APIs in general, APIsARVI.
+  - Involved in initiatives focused on gender diversity in engineering, I was a mentor in two Chicas en Tecnología events.
+  - "Learned LaTeX, from scratch, in around four days. And put together this nice API! The code's here: https://github.com/nicovillanueva/vitae"
+
+work_history:
+  - 
+    title: DevOps Engineer
+    company: Na+ Labs
+    location: Buenos Aires, Argentina (remote, part-time)
+    span: "January 2019 - Present"
+    description: Remote part-time contractor. Administration of Red Hat Linux servers. Server setup via Ansible and Ansible Tower. Development in Go and Python.
+  - 
+    title: DevOps Engineer
+    company: redbee studios
+    location: Buenos Aires, Argentina
+    span: "April 2016 - August 2018"
+    description: "Built the infrastructure for Prisma S.A., one of the largest financial institutions in Argentina. A full microservices architecture, built using Scala and Play! Framework, running in Docker containers. Orchestrated with DC/OS Enterprise. Part of a migration from a legacy system, based on Java 6. This system handled thousands of daily transactions; vastly more on event days, such as football matches or music festivals.
+    Design, management and maintenance of four environments: Development, QA, and Production along with it's backup replica. Releases and deployments performed using Jenkins pipelines developed in Groovy, leveraging Github hooks.
+    Setup centralized logging based on ElasticSearch, Logstash and Kafka. Monitoring and alerting systems using Sysdig for systems monitoring, and custom scripts (including a Telegram bot) for CI and business monitoring.
+    Operations and infrastructure support for several internal teams. Recruiting, training and coordination of new DevOps Engineers."
+
+  - 
+    title: Software Developer Engineer in Test
+    company: redbee studios
+    location: Buenos Aires, Argentina
+    span: "September 2015 - March 2016"
+    description: "Contractor work for Rich Relevance as Big Data Automation Engineer. Helped develop a full suite of automated functional tests, using Selenium and Java 8. Also providing DevOps support for local teams. Working on building and deployment workflows, to local/development/production environments everything running on Docker."
+
+  - 
+    title: Automation developer & DevOps
+    company: despegar.com
+    location: Buenos Aires, Argentina
+    span: "September 2013 - August 2015"
+    description: "Created the automated testing systems for the Viajeros.com project: Implementation and maintenance of tests, monitoring of tests and servers. Monitoring of uptime and performance of servers using Munin and New Relic (RPM and Insights). Security, load and performance testing. Performed some DevOps tasks for the Despegar Affiliate Network project. Design of clusters for new applications. Releasing and deployment of new versions. Installation and configuration of Cassandra, Redis and Spark servers."
+
+education:
+  - 
+    title: Scalable Microservices with Kubernetes
+    institute: Udacity
+    location: Online
+    span: "2019"
+    description: "Management of Kubernetes clusters, and Google Cloud Engine infrastructure."
+  - 
+    title: Web Security
+    institute: NOP07
+    location: Buenos Aires, Argentina
+    span: "2014"
+    description: "Web security, focused on red-teaming."
+  - 
+    title: Information Security
+    institute: Education IT
+    location: Buenos Aires, Argentina
+    span: "2013 - 2014"
+    description: "Web security, penetration testing, network security. Red- and blue-team techniques."
+  - 
+    title: Java Development
+    institute: Education IT
+    location: Buenos Aires, Argentina
+    span: "2012 - 2013"
+    description: "Java EE7 and Android development"
+  - 
+    title: Web Development
+    institute: Universidad Tecnológica Nacional
+    location: Buenos Aires, Argentina
+    span: "2010 - 2011"
+    description: "Web development, marketing and design."
+
+hobbies: >-
+    As mentioned before, my technical skills were mostly learned by hobby. I have a somewhat prolific Github profile (https://github.com/nicovillanueva) with several of my personal projects, ranging from deployment and cluster managements tools, to a collaborative platform for p5.js sketches (in progress).
+    As I have a knack for information security, I also developed a proof-of-concept ransomware and a reverse-shell for gaining access to nodes in distributed clusters.
+    Other relevant interests include: Privacy and online rights of individuals, machine learning, image and signal processing, and digital art.
+
+references:
+  -
+    name: "Hervé Odiard"
+    company: "redbee studios"
+    contact: "herve@redb.ee"
+  -
+    name: "Martin Silberkasten"
+    company: "Despegar"
+    contact: "martoo6@gmail.com"
+  -
+    name: "Gustavo Muzillo"
+    company: "NaLabs"
+    contact: "gustavo@nalabs.io"
+  -
+    name: "Pablo Castelo"
+    company: "NaLabs"
+    contact: "pablo@nalabs.io"

@@ -7,6 +7,10 @@ import (
 	"github.com/spf13/cast"
 )
 
+func handleRootToSwag(c echo.Context) error {
+	return c.Redirect(302, "/swagger/index.html")
+}
+
 // @Summary Personal Statement
 // @Description A simple statement depicting my experience, and stuff
 // @Accept json
@@ -165,5 +169,5 @@ func handleReference(c echo.Context) error {
 // @Success 200 {file} string
 // @Router /download [GET]
 func handleDownloadCV(c echo.Context) error {
-	return c.Blob(http.StatusOK, "application/pdf", cvData.CVinPDF)
+	return c.Blob(http.StatusOK, "application/pdf", cvData.PDFpayload)
 }
