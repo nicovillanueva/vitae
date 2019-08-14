@@ -62,7 +62,7 @@
         {\bfseries\scshape\Huge {\@titleNameStyle{Nicolas}}{\@titleLastStyle{Villanueva}}}
         \vskip 1em
         {\@titleSubStyle{\{Sysadmin~{\vline}~dev\} for fun and profit, looking for new challenges}}
-        \vskip 1.5em
+        \vskip 1.5em 
         \tri
     \end{center}%
     \vskip 1.5em
@@ -72,9 +72,9 @@
 \newcommand{\makeheader}{
     \maketitle
     \begin{minipage}{0.49\textwidth}
-        \centering{\small\faLinkedin}~\href{https://www.linkedin.com/in/villanuevanicolas}{\url{villanuevanicolas}}
+        \centering{\small\faLinkedin}~\href{https://www.linkedin.com/in/villanuevanicolas}{\@code{villanuevanicolas}}
 
-        {\small\faGithub}~\href{https://github.com/nicovillanueva}{\url{nicovillanueva}}
+        {\small\faGithub}~\href{https://github.com/nicovillanueva}{\@code{nicovillanueva}}
     \end{minipage}
     \hskip 2pt  % TODO: Fix this mf
     {\VRule}
@@ -82,5 +82,7 @@
         \centering{\small\faEnvelopeO}~nicovillanueva@pm.me
 
         {\small\faPhone}~+44 7946 479742
+
+        {\small\faMapMarker}~177 Baring Road, SE12 0LA, London, UK
     \end{minipage}
 }
