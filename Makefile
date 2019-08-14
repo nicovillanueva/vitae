@@ -4,7 +4,7 @@ REMOTE_ENV:=DOCKER_TLS_VERIFY="1" DOCKER_HOST="tcp://34.73.0.147:2376" DOCKER_CE
 
 # Locally Go-run the server
 run: swagger
-	go run cli/main.go start -c $$PWD/cv-data.yaml -p $$PWD/latex/nsv-cv.pdf
+	go run cli/main.go start
 
 # Generate the docs and build the image
 build: swagger tex

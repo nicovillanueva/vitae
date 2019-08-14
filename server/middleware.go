@@ -3,10 +3,15 @@ package server
 import (
 	"runtime"
 	"sync"
+	"sync/atomic"
 	"time"
 
 	"github.com/labstack/echo/v4"
 )
+
+/*
+TODO: Use sync/atomic instead of mutex
+*/
 
 type sysStats struct {
 	CurrentMemAlloc uint64 `json:"current_memory"`
@@ -17,7 +22,7 @@ type sysStats struct {
 }
 
 type requestors struct {
-	Requests   int      `json:"processed_requests"`
+	Requests   uint32   `json:"processed_requests"`
 	UserAgents []string `json:"uniq_user_agents"`
 }
 
@@ -52,8 +57,8 @@ func (s *stats) midProcess(next echo.HandlerFunc) echo.HandlerFunc {
 		s.mtx.Lock()
 		defer s.mtx.Unlock()
 
+		atomic.AddUint32(&s.Requestors.Requests, 1)
 		r := c.Request()
-		s.Requestors.Requests++
 		ua := r.UserAgent()
 		s.Requestors.addUserAgent(ua)
 		if len(ua) > 50 {

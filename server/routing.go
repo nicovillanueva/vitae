@@ -10,7 +10,7 @@ var routes = apiVersion{
 	Handlings: []routeDefinition{
 		{"GET", "/", handleRootToSwag},
 		{"GET", "/about", handlePersonalStatement},
-		{"GET", "/download", handleDownloadCV},
+		{"GET", "/pdf", handleDownloadCV},
 		{"GET", "/skills", handleKeySkills},
 		{"GET", "/skills/:id", handleKeySkill},
 		{"GET", "/achievements", handleAchievements},

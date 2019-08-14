@@ -7,6 +7,7 @@ apivitae-export
 
 # Misc
 notes.md
+*.retry
 
 # LaTeX
 latex/*

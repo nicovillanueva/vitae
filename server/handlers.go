@@ -167,7 +167,7 @@ func handleReference(c echo.Context) error {
 // @Accept json
 // @Produce application/pdf
 // @Success 200 {file} string
-// @Router /download [GET]
+// @Router /pdf [GET]
 func handleDownloadCV(c echo.Context) error {
 	return c.Blob(http.StatusOK, "application/pdf", cvData.PDFpayload)
 }

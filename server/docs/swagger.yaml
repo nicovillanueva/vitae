@@ -137,19 +137,6 @@ paths:
             $ref: '#/definitions/server.responseError'
             type: object
       summary: A single achievement
-  /download:
-    get:
-      consumes:
-      - application/json
-      description: Download or view this CV in PDF form to share with your HR friends
-      produces:
-      - application/pdf
-      responses:
-        "200":
-          description: OK
-          schema:
-            type: file
-      summary: CV in PDF form
   /education:
     get:
       consumes:
@@ -204,6 +191,19 @@ paths:
           schema:
             type: string
       summary: Hobbies
+  /pdf:
+    get:
+      consumes:
+      - application/json
+      description: Download or view this CV in PDF form to share with your HR friends
+      produces:
+      - application/pdf
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: file
+      summary: CV in PDF form
   /references:
     get:
       consumes:

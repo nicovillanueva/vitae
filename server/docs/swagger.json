@@ -89,26 +89,6 @@
                 }
             }
         },
-        "/download": {
-            "get": {
-                "description": "Download or view this CV in PDF form to share with your HR friends",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/pdf"
-                ],
-                "summary": "CV in PDF form",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "file"
-                        }
-                    }
-                }
-            }
-        },
         "/education": {
             "get": {
                 "description": "A listing of most courses I've attended. However, given I'm mostly self-taught, it's not really representative of my expertise",
@@ -184,6 +164,26 @@
                         "description": "OK",
                         "schema": {
                             "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/pdf": {
+            "get": {
+                "description": "Download or view this CV in PDF form to share with your HR friends",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/pdf"
+                ],
+                "summary": "CV in PDF form",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "file"
                         }
                     }
                 }
