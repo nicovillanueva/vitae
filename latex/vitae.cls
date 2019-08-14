@@ -61,9 +61,9 @@
     \begin{center}%
         {\bfseries\scshape\Huge {\@titleNameStyle{Nicolas}}{\@titleLastStyle{Villanueva}}}
         \vskip 1em
-        {\@titleSubStyle{\{Sysadmin~{\vline}~dev\} for fun and profit, looking for new challenges}}
-        \vskip 1.5em 
-        \tri
+        {\@titleSubStyle{\{Sysadmin~{\vline}~dev\} for fun and profit}}
+        % \vskip 1.5em 
+        % \tri
     \end{center}%
     \vskip 1.5em
 }
@@ -81,8 +81,8 @@
     \begin{minipage}{0.49\textwidth}
         \centering{\small\faEnvelopeO}~nicovillanueva@pm.me
 
-        {\small\faPhone}~+44 7946 479742
+        {\small\faPhone}~+44 7946 479742 (UK); +549 11 3151 8837 (AR)
 
-        {\small\faMapMarker}~177 Baring Road, SE12 0LA, London, UK
+        {\small\faMapMarker}~SE12, London, UK
     \end{minipage}
 }
