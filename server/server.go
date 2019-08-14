@@ -39,7 +39,7 @@ func Start(d types.CVData) {
 	e.Use(s.midProcess)
 	e.Use(midContactHeader)
 
-	e.Static("/", "static")
+	// e.Static("/", "static") // Static page is DISABLED
 	e.Add("GET", "/api", handleRootToSwag) // not working?
 	e.Add("GET", "/api/stats", s.HandleStats)
 	e.Add("GET", "/swagger/*", echoSwagger.WrapHandler)
