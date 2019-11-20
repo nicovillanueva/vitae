@@ -14,3 +14,4 @@ latex/*
 !latex/*.tex
 !latex/*.cls
 !latex/*.sty
+!latex/readme.md

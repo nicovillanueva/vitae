@@ -77,7 +77,7 @@ definitions:
       title:
         type: string
     type: object
-host: localhost:8080
+host: nicovillanueva.ddns.net
 info:
   contact: {}
   description: My career's documentation

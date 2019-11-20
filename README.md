@@ -19,6 +19,7 @@ Build locally running `make build`. This will generate the Swagger documentation
 - Automatic DDNS updating: Just do it. Quick and easy
 - API: Apply HATEOAS design. Not quick nor easy. Ugh.
 - UI: Throw together an SPA (handmade, frameworkless).
+- Automate LaTeX setup (container?)
 
 ## Contact
 As mentioned in the API headers, contact me at `nicovillanueva|at|pm.me`, or via Linkedin, at https://www.linkedin.com/in/villanuevanicolas/

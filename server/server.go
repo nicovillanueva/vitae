@@ -20,7 +20,7 @@ var cvData types.CVData
 // Start serves the server
 // @title Vitae
 // @description My career's documentation
-// @host localhost:8080
+// @host nicovillanueva.ddns.net
 // @BasePath /api/
 func Start(d types.CVData) {
 	docs.SwaggerInfo.Version = Version

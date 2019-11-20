@@ -81,7 +81,7 @@
     \begin{minipage}{0.49\textwidth}
         \centering{\small\faEnvelopeO}~nicovillanueva@pm.me
 
-        {\small\faPhone}~+44 7946 479742 (UK); +549 11 3151 8837 (AR)
+        {\small\faPhone}~+44 7946 479742 % (UK); +549 11 3151 8837 (AR)
 
         {\small\faMapMarker}~SE12, London, UK
     \end{minipage}

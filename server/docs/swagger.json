@@ -7,7 +7,7 @@
         "license": {},
         "version": "{{.Version}}"
     },
-    "host": "localhost:8080",
+    "host": "nicovillanueva.ddns.net",
     "basePath": "/api/",
     "paths": {
         "/about": {
