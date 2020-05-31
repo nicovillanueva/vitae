@@ -1,9 +1,12 @@
 # Vitae
 
 ## What
+
+**NOTE:** *Here lies the source code for the API. It is currently offline, and will be put back up, and updated, in the future. Basically, once I'm looking for a job again.*
+
 Here you can find the source code for my CV. The API is built in Go, and the .pdf, in LaTeX.
 
-It is online at http://nicovillanueva.ddns.net/
+It ~~is~~ *not* online at http://nicovillanueva.ddns.net/
 
 The front end is under development, but the API is documented in [Swagger](http://nicovillanueva.ddns.net/swagger/index.html). View or download the pdf [here](http://nicovillanueva.ddns.net/api/download), or from the `latex` folder
 
