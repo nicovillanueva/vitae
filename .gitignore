@@ -10,8 +10,5 @@ notes.md
 *.retry
 
 # LaTeX
-latex/*
-!latex/*.tex
-!latex/*.cls
-!latex/*.sty
+latex/*.pdf
 !latex/readme.md
