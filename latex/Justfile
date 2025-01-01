@@ -6,6 +6,13 @@ clean:
 builder-build:
   - docker build -t texbuild .
 
+shell:
+  - docker run -ti --rm -v $PWD:/data -w /data texbuild sh
+
+test:
+  - docker run -ti --rm -v $PWD:/data -w /data texbuild lualatex /data/sr.tex
+
 build:
   # - docker run -ti --rm -v $PWD:/data -w /data texbuild pdflatex /data/nsv-cv.tex
   - docker run -ti --rm -v $PWD:/data -w /data texbuild lualatex /data/nsv-cv.tex
+  - open ./nsv-cv.pdf

@@ -55,16 +55,14 @@
 }
 
 %% Revamp the title command, used in \makeheader
-\renewcommand*{\maketitle}{%
+\renewcommand*{\maketitle}{
     \null
     \vskip 2em
-    \begin{center}%
-        {\bfseries\scshape\Huge {\@titleNameStyle{Nicolas}}{\@titleLastStyle{Villanueva}}}
+    \begin{center}
+        {\bfseries\scshape\Huge {\@titleNameStyle{Nicolas}}~{\@titleLastStyle{Villanueva}}}
         \vskip 1em
         {\@titleSubStyle{\{Sysadmin~{\vline}~dev\} for fun and profit}}
-        % \vskip 1.5em 
-        % \tri
-    \end{center}%
+    \end{center}
     \vskip 1.5em
 }
 
@@ -79,10 +77,10 @@
     \hskip 2pt  % TODO: Fix this mf
     {\VRule}
     \begin{minipage}{0.49\textwidth}
-        \centering{\small\faEnvelopeO}~nicovillanueva@pm.me
+        \centering{\small\faEnvelopeO}~nicolas.s.villanueva@gmail.com
 
-        {\small\faPhone}~+44 7946 479742 % (UK); +549 11 3151 8837 (AR)
+        {\small\faPhone}~+34 613 566 362
 
-        {\small\faMapMarker}~SE12, London, UK
+        {\small\faMapMarker}~Castelldefels, Barcelona, Spain
     \end{minipage}
 }
